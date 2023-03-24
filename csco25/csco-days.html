@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Cisco First Day
+        </title>
+        <style type="text/css">
+            body {
+                background: #f6f6f6;
+            }
+            .countdownContainer {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                text-align: center;
+                background: #ddd;
+                border: 1px solid #999;
+                padding: 10px;
+                box-shadow: 0 0 5px 3px #ccc;
+            }
+
+            .info {
+                font-size: 80px;
+            }
+            .info_today {
+                font-size: 50px;
+                color: #505fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="test">
+
+        </div>
+        <table class="countdownContainer">
+            <tr>
+                <td colspan="4" class="info">Cisco 1998-10-19</td>
+            </tr>
+            <tr class="info">
+                <td id="days">120</td>
+                <td id="hours">11</td>
+                <td id="minutes">23</td>
+                <td id="seconds">12</td>
+            </tr>
+            <tr>
+                <td>Days</td>
+                <td>Hours</td>
+                <td>Minutes</td> 
+                <td>Seconds</td>
+            </tr>
+            <tr>
+                <td colspan="4" id="todayis" class="info_today"></td>
+            </tr>
+        </table>
+
+        <script type="text/javascript">
+
+            function countdown() {
+                var now = new Date();
+                var eventDate = new Date(1998, 9, 19);     //这句代码使用了年、月、日三个数字作为参数，表示2023年11月18日（注意月份是从0开始计数的）
+                // var eventDate = new Date('2023-10-18'); //这句代码使用了一个字符串作为参数，表示2023年10月18日（注意字符串中的月份是从1开始计数的）。
+                var currentTime= now.getTime();
+                //var currentTime= new Date('2023-10-18');  // 9130 days  8 hours??? why?
+                var eventTime=eventDate.getTime();
+                
+                var remTime = currentTime - eventDate;
+                var current_date = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+ now.getDate();
+                var eventDay = now.getDay(); // 得到星期几
+                var weekDays = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]; // 存储星期几的字符串
+
+                var s = Math.floor(remTime/1000);
+                var m = Math.floor(s / 60);
+                var h = Math.floor(m / 60);
+                var d = Math.floor(h / 24);
+                
+                //var e = parseInt((remTime)/(1000*3600*24));
+
+                h %=24;
+                m %=60;
+                s %=60;
+
+                h = (h<10) ? "0"+h: h;
+                m = (m<10) ? "0"+m: m;
+                s = (s<10) ? "0"+s: s;
+
+                ns = now.getSeconds();
+                ns =(ns<10) ? "0"+ns: ns;
+                nm = now.getMinutes();
+                nm = (nm<10) ?"0"+nm: nm;
+
+                document.getElementById("days").textContent=d;
+                document.getElementById("hours").textContent=h;
+                document.getElementById("minutes").textContent=m;
+                document.getElementById("seconds").textContent=s;
+                document.getElementById("todayis").textContent=current_date+" 📅 "+ weekDays[eventDay]+" ⌚ "+now.getHours()+":"+nm+":"+ns;
+
+                setTimeout(countdown,1000);
+        
+            }
+
+            function weekday() {
+                var eventDay = eventDate.getDay(); // 得到星期几
+                var weekDays = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]; // 存储星期几的字符串
+                //console.log(weekDays[eventDay]); // 输出"星期四"
+            }
+
+            countdown();
+                
+        </script>
+    </body>
+</html>
+
