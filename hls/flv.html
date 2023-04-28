@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HLS.js demo</title>
+    <script src="http://bilibili.github.io/flv.js/dist/flv.js"></script>
+</head>
+<body>
+    <video id="video" controls></video>
+    <script>
+         if (flvjs.isSupported()) {
+            var flvPlayer = flvjs.createPlayer({
+                type: 'flv',
+                isLive: true,
+				hasAudio:false,
+				hasVideo:true,
+                url: 'http://192.168.10.100/0.flv', //<==自行修改
+
+            });
+            flvPlayer.attachMediaElement(videoElement);
+            flvPlayer.load(); //加载
+            flv_start();
+        }
+
+    </script>
+</body>
+</html>
