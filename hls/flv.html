@@ -52,7 +52,9 @@
         <input style="width:100px" type="text" name="seekpoint" />
         <button onclick="flv_seekto()">跳转</button>
     </div>
-    <script src="./flv.js/flv.min.js"></script>
+    //<script src="./flv.js/flv.min.js"></script> // 有问题。
+    <script src="http://bilibili.github.io/flv.js/dist/flv.js"></script>
+
     <script>
         var player = document.getElementById('videoElement');
         if (flvjs.isSupported()) {
