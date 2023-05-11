@@ -41,17 +41,17 @@
             <tr>
                 <td colspan="4" class="info">Cisco 1998-10-19</td>
             </tr>
+            <tr>
+                <td>天</td>
+                <td>小时</td>
+                <td>分钟</td> 
+                <td>秒</td>
+            </tr>
             <tr class="info">
                 <td id="days">120</td>
                 <td id="hours">11</td>
                 <td id="minutes">23</td>
                 <td id="seconds">12</td>
-            </tr>
-            <tr>
-                <td>Days</td>
-                <td>Hours</td>
-                <td>Minutes</td> 
-                <td>Seconds</td>
             </tr>
             <tr>
                 <td colspan="4" id="todayis" class="info_today"></td>
@@ -96,8 +96,8 @@
                 document.getElementById("days").textContent=d;
                 document.getElementById("hours").textContent=h;
                 document.getElementById("minutes").textContent=m;
-                document.getElementById("seconds").textContent=s;
-                document.getElementById("todayis").textContent=current_date+" 📅 "+ weekDays[eventDay]+" ⌚ "+now.getHours()+":"+nm+":"+ns;
+                document.getElementById("seconds").textContent=s;  // textContent 和innerHTML有区别 <br>
+                document.getElementById("todayis").innerHTML=current_date+" 📅 "+ weekDays[eventDay]+"<br>⌚ "+now.getHours()+":"+nm+":"+ns;
 
                 setTimeout(countdown,1000);
         
