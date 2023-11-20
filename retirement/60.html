@@ -68,7 +68,8 @@
                 //var currentTime= new Date('2023-10-18');  // 9130 days  8 hours??? why?
                 var eventTime=eventDate.getTime();
                 
-                var remTime = currentTime - eventDate;
+                // var remTime = currentTime - eventDate; // 倒计时，要反过来。最好加个if then 2023-11-20 12:00pm 8F
+                var remTime = eventDate - currentTime;
                 var current_date = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+ now.getDate();
                 var eventDay = now.getDay(); // 得到星期几
                 var weekDays = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]; // 存储星期几的字符串
